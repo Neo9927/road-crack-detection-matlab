@@ -1,38 +1,19 @@
-# =========================
-# Dataset folders
-# =========================
+# Ignore dataset folders
+data/CRACK500/
+data/CrackForest/
+data/DeepCrack/
 
-data/*
-
-!data/README.md
-!data/.gitkeep
-
-
-# =========================
-# Generated outputs
-# =========================
-
+# Ignore generated results and outputs
 results/
 outputs/
 models/
-checkpoints/
 
-
-# =========================
-# MATLAB files
-# =========================
-
+# Ignore MATLAB temporary files
 *.asv
 *.m~
 *.mat
 *.fig
-*.mex*
-slprj/
 
-
-# =========================
-# OS files
-# =========================
-
+# Ignore system files
 .DS_Store
 Thumbs.db
