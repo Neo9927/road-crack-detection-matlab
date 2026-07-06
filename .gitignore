@@ -1,0 +1,38 @@
+# =========================
+# Dataset folders
+# =========================
+
+data/*
+
+!data/README.md
+!data/.gitkeep
+
+
+# =========================
+# Generated outputs
+# =========================
+
+results/
+outputs/
+models/
+checkpoints/
+
+
+# =========================
+# MATLAB files
+# =========================
+
+*.asv
+*.m~
+*.mat
+*.fig
+*.mex*
+slprj/
+
+
+# =========================
+# OS files
+# =========================
+
+.DS_Store
+Thumbs.db
