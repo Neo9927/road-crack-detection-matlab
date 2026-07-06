@@ -1,7 +1,6 @@
 # Ignore dataset folders
-data/CRACK500/
-data/CrackForest/
-data/DeepCrack/
+# Ignore everything inside data
+data/*
 
 # Ignore generated results and outputs
 results/
