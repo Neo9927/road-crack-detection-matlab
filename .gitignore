@@ -1,6 +1,6 @@
 # Ignore dataset folders
 # Ignore everything inside data
-data/*
+/src/data/*
 
 # Ignore generated results and outputs
 results/
@@ -16,4 +16,4 @@ models/
 # Ignore system files
 .DS_Store
 Thumbs.db
-/src/data
+
