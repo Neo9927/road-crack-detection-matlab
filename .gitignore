@@ -3,9 +3,7 @@
 /src/data/*
 
 # Ignore generated results and outputs
-results/
-outputs/
-models/
+
 
 # Ignore MATLAB temporary files
 *.asv
