@@ -1,0 +1,36 @@
+function [imageDs, maskDs, validDs, metadata] = ...
+        create_patch_triplet_datastores(patchSplitDir)
+%CREATE_PATCH_TRIPLET_DATASTORES 读取 image/mask/valid 三元组。
+
+    metadataFile = fullfile( ...
+        patchSplitDir, 'patch_metadata.csv');
+
+    if ~isfile(metadataFile)
+        error('Patch metadata not found: %s', metadataFile);
+    end
+
+    metadata = readtable( ...
+        metadataFile, 'TextType', 'string');
+
+    imageFiles = fullfile( ...
+        patchSplitDir, 'images', ...
+        cellstr(metadata.PatchName));
+
+    maskFiles = fullfile( ...
+        patchSplitDir, 'masks', ...
+        cellstr(metadata.PatchName));
+
+    validFiles = fullfile( ...
+        patchSplitDir, 'valid', ...
+        cellstr(metadata.PatchName));
+
+    if any(~cellfun(@isfile,imageFiles)) || ...
+            any(~cellfun(@isfile,maskFiles)) || ...
+            any(~cellfun(@isfile,validFiles))
+        error('Some patch image/mask/valid files are missing.');
+    end
+
+    imageDs = imageDatastore(imageFiles);
+    maskDs = imageDatastore(maskFiles);
+    validDs = imageDatastore(validFiles);
+end

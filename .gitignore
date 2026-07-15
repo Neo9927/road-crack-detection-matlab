@@ -8,7 +8,6 @@
 # Ignore MATLAB temporary files
 *.asv
 *.m~
-*.mat
 *.fig
 
 # Ignore system files
