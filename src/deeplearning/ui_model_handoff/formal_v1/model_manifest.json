@@ -1,0 +1,33 @@
+{
+  "model_id": "ELEC9773-CRACK500-UNET",
+  "model_version": "Formal-V1",
+  "interface_version": "1.0",
+  "status": "temporary_week7_baseline",
+  "matlab_release": "R2024b",
+  "model_file": "models/unet_v1_formal.mat",
+  "model_size_bytes": 1849311,
+  "model_sha256": "968CF6092E300CD32736C1593106429039B06B25EC7A9D948B016671B81DE0A1",
+  "network_variable": "trainedV1Net",
+  "input_size": [256, 256, 3],
+  "classes": ["background", "crack"],
+  "inference_route": "whole_image_resize",
+  "preprocessing": [
+    "convert_grayscale_to_rgb",
+    "keep_first_three_channels",
+    "convert_to_uint8",
+    "resize_whole_image_to_256_by_256"
+  ],
+  "public_loader": "loadCrackModel.m",
+  "public_prediction_api": "predictCrackMask.m",
+  "output_contract": {
+    "predicted_mask": "logical H-by-W mask restored to original image size with nearest-neighbour interpolation",
+    "overlay_image": "uint8 H-by-W-by-3 RGB image",
+    "info": "MATLAB struct containing version, dimensions, runtime and predicted crack fraction"
+  },
+  "known_limitations_cn": [
+    "整张图会被缩放为256乘256，因此可能损失细裂缝信息",
+    "非正方形图像在网络输入阶段会发生长宽比例变化",
+    "这是Week 7阶段模型，不代表最终V2或最终项目模型"
+  ],
+  "replacement_rule_cn": "未来模型必须保持predictCrackMask的输入输出接口不变，UI代码不应直接访问网络内部变量。"
+}
